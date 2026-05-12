@@ -1703,39 +1703,6 @@
       });
     });
 
-    // ----- Manejo del formulario de contacto -----
-    // NOTA: Esto solo simula el envío. Para producción, conectar a:
-    //   - Formspree (https://formspree.io)
-    //   - Netlify Forms (si despliegas en Netlify)
-    //   - Cloudflare Workers (si despliegas en Cloudflare Pages)
-    //   - O reemplazar por un link directo a wa.me con los datos
-    const form = document.getElementById('contactForm');
-    const formStatus = document.getElementById('formStatus');
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const name = document.getElementById('name').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const message = document.getElementById('message').value.trim();
-
-      if (!name || !phone || !message) {
-        alert('Por favor completa todos los campos.');
-        return;
-      }
-
-      // OPCIÓN ALTERNATIVA SIMPLE: redirigir a WhatsApp con el mensaje pre-rellenado
-      // Descomenta las 2 líneas siguientes y elimina el bloque de "simulación"
-      // si prefieres que el formulario abra WhatsApp en vez de simular envío.
-      //
-      // const whatsappMessage = encodeURIComponent(`Hola, soy ${name}. ${message} Mi número: ${phone}`);
-      // window.open(`https://wa.me/56912345678?text=${whatsappMessage}`, '_blank');
-
-      // Simulación de envío exitoso
-      formStatus.classList.add('visible');
-      form.reset();
-      setTimeout(() => formStatus.classList.remove('visible'), 5000);
-    });
   </script>
 
 </body>
